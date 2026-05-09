@@ -51,21 +51,12 @@ Create a `.env` file from `.env.example`.
 
 ## Recordings
 
-The PDF says "record 20 samples" but lists 30 locality names. This repo preserves all 30 in `data/references/localities.csv`.
+This repo preserves all 30 in `data/references/localities.csv`.
 
-For the minimum submission:
+- Recorded at least 20 files
+- Filled in `data/references/metadata_template.csv`
+- Kept the `expected_locality` column aligned to the spoken locality
 
-- Record at least 20 files
-- Fill in `data/references/metadata_template.csv`
-- Keep the `expected_locality` column aligned to the spoken locality
-
-Suggested filename pattern:
-
-```text
-loc_01_koramangala_quiet.wav
-loc_02_indiranagar_traffic.m4a
-loc_03_whitefield_phonecall.mp3
-```
 
 ## Running the benchmark
 
@@ -103,15 +94,6 @@ Each run writes:
 - `aggregate_metrics.csv`: model-level metrics
 - `condition_metrics.csv`: metrics by environment tag
 - `summary.md`: report-ready benchmark summary
-
-## Recommended report angle
-
-Use the assignment to tell a production story, not just list scores:
-
-- Compare API quality versus deployable open-source quality
-- Show where locality names fail under code-switching and noise
-- Highlight latency and operational tradeoffs
-- Recommend a stack under different constraints
 
 ## Notes
 

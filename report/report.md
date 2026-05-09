@@ -98,14 +98,14 @@ In practice, my recommendation would be:
 ## Limitations
 
 - Only 20 samples
-- Likely single speaker
+- Only a single speaker
 - No public open-source dataset added yet
 - Benchmark is batch ASR, not a full conversational streaming test
 - The rescoring normalization is lightweight and not a full Hindi transliteration system
 
 ## Next Steps
 
-- Add 2 to 3 more speakers with different accents
-- Add a public Hindi or Hindi-English code-switched dataset
-- Evaluate fuzzy entity matching downstream from raw ASR
-- Test more Deepgram settings and at least one additional API ASR system
+- Addition 2 to 3 more speakers with different accents
+- Addition of a public Hindi or Hindi-English code-switched dataset
+- Evaluating fuzzy entity matching downstream from raw ASR
+- Testing more Deepgram settings and at least one additional API ASR system
