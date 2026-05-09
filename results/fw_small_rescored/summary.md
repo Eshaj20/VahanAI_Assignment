@@ -4,7 +4,7 @@
 
 | Model | Samples | Avg WER | Avg CER | Locality EM | Locality Token Recall | Avg Latency (s) | RTF |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| faster_whisper_small | 20 | 0.882 | 0.468 | 0.250 | 0.000 | 12.512 | 2.786 |
+| faster_whisper_small | 20 | 0.882 | 0.463 | 0.250 | 0.000 | 12.512 | 2.786 |
 
 ## Condition Breakdown
 
