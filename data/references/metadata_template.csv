@@ -1,0 +1,21 @@
+sample_id,audio_path,language,condition_tags,expected_locality,reference_transcript,notes
+1,data/recordings/Koramangala_quiet.m4a,hinglish,quiet|indoor,Koramangala,"Haan, main Koramangala mein rehta hoon",pasted_audio_found
+2,data/recordings/Indiranagar.m4a,hinglish,traffic|outdoor,Indiranagar,"Mera ghar Indiranagar ke paas hai",pasted_audio_found
+3,data/recordings/Whitefield.m4a,hinglish,phonecall|compressed,Whitefield,"Main abhi Whitefield side pe hoon",pasted_audio_found
+4,data/recordings/Electronic City.m4a,hindi,quiet|indoor,Electronic City,"Main Electronic City mein kaam karta hoon",pasted_audio_found
+5,data/recordings/Marathahalli.m4a,hinglish,rushed|indoor,Marathahalli,"Haanji, Marathahalli ke paas utar dijiye",pasted_audio_found
+6,data/recordings/Jayanagar.m4a,hindi,traffic|outdoor,Jayanagar,"Main Jayanagar side se bol raha hoon",pasted_audio_found
+7,data/recordings/Rajajinagar.m4a,kannada,quiet|indoor,Rajajinagar,"Naanu Rajajinagar alli iddini",pasted_audio_found
+8,data/recordings/Hebbal.m4a,hinglish,phonecall|compressed,Hebbal,"Hebbal ke near mera location hai",pasted_audio_found
+9,data/recordings/Yelahanka.m4a,hinglish,whisper|indoor,Yelahanka,"Main Yelahanka mein rehta hoon",pasted_audio_found
+10,data/recordings/Banashankari.m4a,hindi,quiet|indoor,Banashankari,"Banashankari se bol raha hoon",pasted_audio_found
+11,data/recordings/Hsr layout.m4a,hinglish,traffic|outdoor,HSR Layout,"Mera address HSR Layout mein hai",pasted_audio_found
+12,data/recordings/Btm layout.m4a,hinglish,phonecall|compressed,BTM Layout,"BTM Layout ke side pe ghar hai",pasted_audio_found
+13,data/recordings/Majestic.m4a,hindi,noise|outdoor,Majestic,"Main Majestic pahunch gaya hoon",pasted_audio_found
+14,data/recordings/Silk Board.m4a,hinglish,rushed|traffic,Silk Board,"Silk Board ke paas bahut traffic hai",pasted_audio_found
+15,data/recordings/Bellandur.m4a,hinglish,quiet|indoor,Bellandur,"Bellandur mein mera room hai",pasted_audio_found
+16,data/recordings/Sarjapur.m4a,hinglish,phonecall|compressed,Sarjapur,"Main Sarjapur road pe hoon",pasted_audio_found
+17,data/recordings/Bommanahalli.m4a,hindi,noise|outdoor,Bommanahalli,"Bommanahalli ke aas paas rehta hoon",pasted_audio_found
+18,data/recordings/Kr Puram.m4a,hinglish,quiet|indoor,KR Puram,"KR Puram side mera ghar hai",pasted_audio_found
+19,data/recordings/Peenya.m4a,kannada,phonecall|compressed,Peenya,"Naanu Peenya inda mathadta iddini",pasted_audio_found
+20,data/recordings/Yeshwanthpur.m4a,hinglish,traffic|outdoor,Yeshwanthpur,"Yeshwanthpur ke paas utarna hai",pasted_audio_found

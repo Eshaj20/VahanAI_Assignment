@@ -1,0 +1,31 @@
+locality_id,locality_name,is_minimum_20
+1,Koramangala,yes
+2,Indiranagar,yes
+3,Whitefield,yes
+4,Electronic City,yes
+5,Marathahalli,yes
+6,Jayanagar,yes
+7,Rajajinagar,yes
+8,Hebbal,yes
+9,Yelahanka,yes
+10,Banashankari,yes
+11,HSR Layout,yes
+12,BTM Layout,yes
+13,Majestic,yes
+14,Silk Board,yes
+15,Bellandur,yes
+16,Sarjapur,yes
+17,Bommanahalli,yes
+18,KR Puram,yes
+19,Peenya,yes
+20,Yeshwanthpur,yes
+21,Byatarayanapura,no
+22,Kadugondanahalli,no
+23,Hesaraghatta,no
+24,Chikkabanavara,no
+25,Rajarajeshwarinagar,no
+26,Kothanur Dinne,no
+27,Thanisandra,no
+28,Doddanekundi,no
+29,Kengeri Upanagara,no
+30,Thalaghattapura,no

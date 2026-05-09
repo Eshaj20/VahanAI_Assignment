@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Local test/cache artifacts
+.pytest_cache/
