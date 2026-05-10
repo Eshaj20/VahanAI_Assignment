@@ -1,0 +1,7 @@
+model,condition_tag,samples,avg_wer,avg_cer,locality_exact_match_rate,locality_token_recall,avg_latency_seconds
+deepgram_nova-2,compressed,10,0.90238,0.87027,0.2,0.15,5.48462
+deepgram_nova-2,indoor,20,0.920955,0.863815,0.2,0.2,6.385555
+deepgram_nova-2,outdoor,10,0.95,0.93704,0.0,0.0,3.70558
+deepgram_nova-2,phonecall,10,0.90238,0.87027,0.2,0.15,5.48462
+deepgram_nova-2,quiet,20,0.920955,0.863815,0.2,0.2,6.385555
+deepgram_nova-2,traffic,10,0.95,0.93704,0.0,0.0,3.70558

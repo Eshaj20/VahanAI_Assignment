@@ -1,2 +1,2 @@
 model,samples,avg_wer,avg_cer,locality_exact_match_rate,locality_token_recall,avg_latency_seconds,avg_audio_seconds,realtime_factor
-faster_whisper_large,20,0.8183299999999999,0.504375,0.35,0.05,66.18750500000002,4.4906,14.739122834365121
+faster_whisper_small,40,0.8765425,0.4452025,0.2,0.0,24.765292499999997,4.355672500000001,5.685756332690301

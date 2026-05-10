@@ -24,9 +24,9 @@ data/
   recordings/              # Put your .wav/.mp3/.m4a files here
   references/
     localities.csv         # Full locality list from the assignment PDF
-    metadata_template.csv  # Template to fill with file paths + gold transcripts
+    metadata_template.csv  # Final 40-sample dataset manifest
 report/
-  report_template.md
+  report.md
   walkthrough_notes.md
 results/                   # Generated benchmark outputs
 src/asr_benchmark/
@@ -51,11 +51,15 @@ Create a `.env` file from `.env.example`.
 
 ## Recordings
 
-This repo preserves all 30 in `data/references/localities.csv`.
+This repo preserves all 30 localities from the assignment prompt in `data/references/localities.csv`.
 
-- Recorded at least 20 files
-- Filled in `data/references/metadata_template.csv`
-- Kept the `expected_locality` column aligned to the spoken locality
+Final dataset used in this submission:
+
+- 40 total recordings
+- 20 quiet indoor clips
+- 10 traffic/outdoor clips
+- 10 phone-call/compressed clips
+- `data/references/metadata_template.csv` aligned to the spoken transcript for each file
 
 
 ## Running the benchmark
@@ -94,6 +98,17 @@ Each run writes:
 - `aggregate_metrics.csv`: model-level metrics
 - `condition_metrics.csv`: metrics by environment tag
 - `summary.md`: report-ready benchmark summary
+
+Final benchmark outputs included in this repo:
+
+- `results/deepgram_40/`
+- `results/fw_small_40/`
+- `results/fw_large_40/`
+
+Final write-up files:
+
+- `report/report.md`
+- `report/walkthrough_notes.md`
 
 ## Notes
 

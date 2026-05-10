@@ -1,0 +1,7 @@
+model,condition_tag,samples,avg_wer,avg_cer,locality_exact_match_rate,locality_token_recall,avg_latency_seconds
+faster_whisper_small,compressed,10,0.8971399999999999,0.4171,0.1,0.0,22.655160000000002
+faster_whisper_small,indoor,20,0.8821350000000001,0.45565500000000003,0.2,0.0,26.199495000000002
+faster_whisper_small,outdoor,10,0.84476,0.4524,0.3,0.0,24.007020000000004
+faster_whisper_small,phonecall,10,0.8971399999999999,0.4171,0.1,0.0,22.655160000000002
+faster_whisper_small,quiet,20,0.8821350000000001,0.45565500000000003,0.2,0.0,26.199495000000002
+faster_whisper_small,traffic,10,0.84476,0.4524,0.3,0.0,24.007020000000004

@@ -7,7 +7,7 @@ This is not a generic ASR task. The production problem is whether the system can
 ## 2. Dataset choice
 
 - I created a self-recorded benchmark because the assignment emphasizes realistic candidate speech.
-- I varied room noise, traffic, rushed delivery, whispering, and phone-call compression.
+- I used 40 recordings in total: 20 quiet indoor clips, 10 traffic/outdoor clips, and 10 phone-call/compressed clips.
 - I tracked both full-transcript accuracy and locality capture.
 
 ## 3. Model choice
@@ -28,6 +28,7 @@ This is not a generic ASR task. The production problem is whether the system can
 - `faster-whisper large` was the most accurate model, but it was dramatically slower than the rest.
 - Deepgram was the only model close to real time, but it returned several empty or partial transcripts on short mixed-language clips.
 - The first pass of scoring made Whisper look worse than it really was because it produced Devanagari output while the references were written in Latin script.
+- Adding real traffic and phone-call recordings made the condition comparison much more credible than the original 20-file version.
 
 ## 6. Recommendation
 
@@ -37,6 +38,6 @@ This is not a generic ASR task. The production problem is whether the system can
 
 ## 7. Limitations
 
-- Small dataset
+- Small dataset relative to production diversity, even though it is now 40 samples
 - Mostly one speaker unless expanded
 - Benchmark is batch ASR, not a full conversational streaming test

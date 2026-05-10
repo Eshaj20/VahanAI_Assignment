@@ -6,8 +6,8 @@ Evaluate ASR systems on self-recorded Bangalore locality utterances spoken in na
 
 ## Benchmark Setup
 
-- Dataset: 20 self-recorded locality utterances
-- Conditions: quiet indoor, traffic noise, outdoor noise, rushed speech, whisper, phone-call/compressed audio
+- Dataset: 40 self-recorded locality utterances
+- Conditions: 20 quiet indoor clips, 10 traffic/outdoor clips, 10 phone-call/compressed clips
 - Baseline: Deepgram `nova-2`
 - Comparators: `faster-whisper` small and `faster-whisper` large-v3
 
@@ -19,15 +19,15 @@ The Whisper models often returned Hindi in Devanagari script, while the referenc
 
 | Model | Samples | Avg WER | Avg CER | Locality EM | Avg Latency (s) | Real-Time Factor |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Deepgram nova-2 | 20 | 0.921 | 0.864 | 0.20 | 4.40 | 0.98 |
-| Faster-Whisper Small | 20 | 0.882 | 0.468 | 0.25 | 12.51 | 2.79 |
-| Faster-Whisper Large | 20 | 0.818 | 0.510 | 0.35 | 66.19 | 14.74 |
+| Deepgram nova-2 | 40 | 0.924 | 0.884 | 0.15 | 5.49 | 1.26 |
+| Faster-Whisper Small | 40 | 0.877 | 0.445 | 0.20 | 24.77 | 5.69 |
+| Faster-Whisper Large | 40 | 0.810 | 0.454 | 0.40 | 125.40 | 28.79 |
 
 ## Interpretation
 
 - `faster-whisper large` gave the best locality capture and the lowest WER, but it was by far the slowest model.
 - `Deepgram` was the fastest system and the only one close to real time on this setup, but its locality recall on this dataset was weak.
-- `faster-whisper small` did not justify itself strongly in this run. It was much slower than Deepgram without a large enough quality gain.
+- `faster-whisper small` improved on Deepgram's text accuracy, but not enough to become the most attractive tradeoff. It remained substantially slower while still trailing Whisper Large on locality capture.
 
 ## Failure Analysis
 
@@ -35,7 +35,7 @@ The Whisper models often returned Hindi in Devanagari script, while the referenc
 
 Whisper often produced semantically correct Hindi transcripts, but in Devanagari or close phonetic Hindi. The example below is shown in transliterated Latin script for readability:
 
-- Reference: `Haan, main Koramangala mein rehta hoon`
+- Reference: `Haan, main Koramangala mein rehti hoon`
 - Whisper Large: `haan, main koramangala mein rahti hoon`
 
 The locality is clearly present, but naive Latin-script scoring marks this as wrong. This was the main reason I rescored the saved predictions.
@@ -49,22 +49,18 @@ Examples:
 - `Whitefield`: `Whitefield side.`
 - `Electronic City`: `Electronic city`
 
-This suggests the short, noisy, mixed-language clips were difficult for the baseline in its current configuration.
+This pattern remained visible after expanding to 40 samples. It suggests the short, mixed-language clips were difficult for the baseline in its current configuration.
 
-### 3. Traffic and rushed speech were not the worst case for Whisper Large
+### 3. Traffic and phone-call audio changed the picture in useful ways
 
-For `faster-whisper large`, the strongest locality exact match rates came from:
+On the expanded dataset:
 
-- `rushed`: `1.0` on 2 samples
-- `traffic`: `0.6` on 5 samples
-
-The weaker conditions were:
-
-- `whisper`: `0.0`
-- `noise`: `0.0`
-- `quiet`: `0.167`
-
-This was surprising. The dataset is small, so I would treat condition-level conclusions as directional rather than definitive.
+- `Deepgram` performed slightly better on `phonecall|compressed` than on `traffic|outdoor`
+  - phonecall locality EM: `0.20`
+  - traffic locality EM: `0.00`
+- `faster-whisper large` held up better than Deepgram on both added conditions
+  - phonecall locality EM: `0.40`
+  - traffic locality EM: `0.50`
 
 ### 4. Near-miss locality spellings are a real product risk
 
@@ -79,9 +75,9 @@ For an address-extraction workflow, these near-misses matter because downstream 
 
 ## Recommendation
 
-If I had to choose one production starting point from this benchmark alone for a latency-sensitive telephony workflow, I would start with `Deepgram` for operational simplicity and near-real-time latency. Its speed is attractive for telephony, but locality capture here was not strong enough to treat as solved.
+If I had to choose one production starting point from this benchmark alone for a latency-sensitive telephony workflow, I would still start with `Deepgram` for operational simplicity and lower latency. However, the 40-sample benchmark makes the quality gap more obvious: it was the weakest model on both WER and locality exact match.
 
-If self-hosting is acceptable and locality accuracy is the top priority, `faster-whisper large` is the stronger model in this benchmark. The tradeoff is severe latency: roughly `14.7x` real time on this machine, which makes direct production use difficult without stronger hardware or asynchronous processing.
+If self-hosting is acceptable and locality accuracy is the top priority, `faster-whisper large` is the strongest model in this benchmark. The tradeoff is severe latency: roughly `28.8x` real time on this machine, which makes direct production use difficult without stronger hardware or asynchronous processing.
 
 In practice, my recommendation would be:
 
@@ -94,10 +90,11 @@ In practice, my recommendation would be:
 - The best accuracy model was dramatically slower than the others.
 - Deepgram, despite being the production API baseline, produced several empty or partial transcripts on these clips.
 - Script mismatch created a misleading first impression until the scoring was corrected.
+- Adding real traffic and phone-call recordings strengthened the case for condition-aware evaluation instead of relying on a single clean recording set.
 
 ## Limitations
 
-- Only 20 samples
+- Only 40 samples
 - Only a single speaker
 - No public open-source dataset added yet
 - Benchmark is batch ASR, not a full conversational streaming test
@@ -105,7 +102,7 @@ In practice, my recommendation would be:
 
 ## Next Steps
 
-- Addition 2 to 3 more speakers with different accents
-- Addition of a public Hindi or Hindi-English code-switched dataset
+- Addition of 2 to 3 more speakers with different accents
+- Adding a public Hindi or Hindi-English code-switched dataset
 - Evaluating fuzzy entity matching downstream from raw ASR
 - Testing more Deepgram settings and at least one additional API ASR system

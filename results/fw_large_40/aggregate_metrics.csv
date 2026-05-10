@@ -1,2 +1,2 @@
 model,samples,avg_wer,avg_cer,locality_exact_match_rate,locality_token_recall,avg_latency_seconds,avg_audio_seconds,realtime_factor
-deepgram_nova-2,20,0.920955,0.863815,0.2,0.2,4.3971599999999995,4.4906,0.979192090143856
+faster_whisper_large,40,0.8101150000000003,0.4536550000000001,0.4,0.075,125.39803000000002,4.355672500000001,28.789591044781258
