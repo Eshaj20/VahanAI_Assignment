@@ -114,4 +114,4 @@ Final write-up files:
 
 - `faster-whisper` will download models on first run.
 - Deepgram requires `DEEPGRAM_API_KEY`.
-- You can add more model adapters later without changing the evaluation logic.
+- We can add more model adapters later without changing the evaluation logic.
