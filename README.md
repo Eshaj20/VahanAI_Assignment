@@ -21,7 +21,7 @@ This gives you one production API baseline plus two open-source local baselines 
 
 ```text
 data/
-  recordings/              # Put your .wav/.mp3/.m4a files here
+  recordings/              # Put .wav/.mp3/.m4a files here
   references/
     localities.csv         # Full locality list from the assignment PDF
     metadata_template.csv  # Final 40-sample dataset manifest
